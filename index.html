@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fake or Fortune?</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="translate-btn">🌐</div>
+
+  <div id="language-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">×</span>
+      <h2 id="select-lang-text">Select Language</h2>
+      <input type="text" id="search-lang" placeholder="Search language..." />
+      <select id="lang-select" size="10"></select>
+    </div>
+  </div>
+
+  <header>
+    <h1 id="title">Fake or Fortune?</h1>
+    <p id="subtitle">هل هذا الشخص حقيقي أم مولّد بالذكاء الاصطناعي؟</p>
+  </header>
+
+  <main>
+    <div id="person-container">
+      <img id="person-img" src="" alt="Person" />
+      <div id="price">$<span id="amount">0</span> Million</div>
+    </div>
+
+    <div id="question">
+      <h2 id="question-text">Is this person REAL or AI-generated?</h2>
+    </div>
+
+    <div class="buttons">
+      <button class="choice-btn" data-choice="real">✅ REAL</button>
+      <button class="choice-btn" data-choice="fake">🤖 FAKE</button>
+    </div>
+
+    <div id="result" class="hidden">
+      <h2 id="result-text"></h2>
+      <p id="stats">0% أصابوا • 0% أخطأوا</p>
+      <button id="next-btn">Next Person ➜</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>Made with ❤️ • Share if you beat your friends!</p>
+  </footer>
+
+  <!-- Google AdSense (ضعه بعد الرفع) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+     crossorigin="anonymous"></script>
+</body>
+</html>
