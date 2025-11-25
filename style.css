@@ -1,30 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Rajdhani:wght@600;700&display=swap');
 
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: 'Outfit', sans-serif; background:#0f0f0f; color:#fff; text-align:center; padding:20px; }
-header { margin-bottom:30px; }
-h1 { font-size:3rem; margin-bottom:10px; }
-#person-img { width:300px; height:300px; object-fit:cover; border-radius:50%; border:5px solid #333; margin:20px auto; display:block; box-shadow:0 0 30px rgba(0,255,255,0.3); }
-#price { font-size:2.5rem; font-weight:bold; color:#00ffcc; margin:20px 0; }
-.buttons { margin:30px 0; }
-.choice-btn { font-size:1.8rem; padding:15px 40px; margin:0 15px; border:none; border-radius:50px; cursor:pointer; transition:0.3s; }
+body { font-family: 'Rajdhani', sans-serif; background:#000; color:#fff; text-align:center; min-height:100vh; overflow-x:hidden; position:relative; }
+#particles-js { position:absolute; width:100%; height:100%; top:0; left:0; z-index:1; opacity:0.7; }
+header, main, #leaderboard, footer { position:relative; z-index:2; padding:20px; }
+
+h1 { font-family: 'Orbitron', sans-serif; font-size:5.5rem; background:linear-gradient(45deg,#00ffff,#ff00ff,#ffff00,#00ff00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:glitch 5s infinite; }
+@keyframes glitch { 0%,100%{text-shadow:5px 5px #ff00ff,-5px -5px #00ffff;} 25%{text-shadow:-5px 5px #ffff00,5px -5px #00ffff;} }
+
+#person-img { width:340px; height:340px; object-fit:cover; border-radius:50%; border:8px solid #00ffff; box-shadow:0 0 50px #00ffff, 0 0 100px #ff00ff; animation:zoom 1.2s, neon 2s infinite alternate; margin:30px auto; display:block; }
+@keyframes zoom { from{transform:scale(0);opacity:0;} to{transform:scale(1);opacity:1;} }
+@keyframes neon { from{box-shadow:0 0 40px #00ffff;} to{box-shadow:0 0 80px #ff00ff;} }
+
+#price { font-size:3.2rem; color:#00ffcc; text-shadow:0 0 30px #00ffcc; margin:20px; }
+.choice-btn { font-size:2.2rem; padding:20px 60px; margin:20px; border-radius:50px; cursor:pointer; font-weight:bold; transition:all 0.3s; }
 .choice-btn[data-choice="real"] { background:#00ff00; color:#000; }
 .choice-btn[data-choice="fake"] { background:#ff0066; color:#fff; }
-.choice-btn:hover { transform:scale(1.1); }
-#result { margin-top:40px; padding:30px; background:rgba(255,255,255,0.1); border-radius:20px; }
+.choice-btn:hover { transform:scale(1.2); box-shadow:0 0 40px currentColor; }
+
+#result, #leaderboard { background:rgba(255,255,255,0.05); padding:30px; border-radius:25px; margin:30px auto; max-width:600px; backdrop-filter:blur(10px); }
+#next-btn { background:#ffd700; color:#000; padding:18px 50px; font-size:2rem; border:none; border-radius:50px; cursor:pointer; }
+
+#live-earnings { font-size:2rem; color:#00ff00; font-weight:bold; margin:20px; text-shadow:0 0 20px #0f0; }
+#theme-toggle, #translate-btn { position:fixed; top:20px; background:#111; color:#fff; border:none; padding:12px 20px; border-radius:50px; cursor:pointer; z-index:9999; box-shadow:0 0 20px #00ffff; }
+#theme-toggle { left:20px; }
+#translate-btn { right:20px; }
+
+.modal, .modal-content { background:rgba(0,0,0,0.95); border:3px solid #00ffff; }
+#share-buttons button { margin:10px; padding:12px 25px; background:#333; border-radius:10px; }
+
+body.light { background:#111; }
+body.light #particles-js { opacity:0.3; }
 .hidden { display:none; }
-#next-btn { margin-top:20px; padding:15px 30px; font-size:1.5rem; background:#ffd700; color:#000; border:none; border-radius:50px; cursor:pointer; }
-
-/* زر الترجمة الأسود المتوسط */
-#translate-btn {
-  position:fixed; top:20px; right:20px; background:#000; color:#fff; width:50px; height:50px; 
-  border-radius:50%; font-size:24px; cursor:pointer; z-index:9999; display:flex; align-items:center; justify-content:center;
-  box-shadow:0 0 20px rgba(0,255,255,0.5);
-}
-
-/* Modal اللغات */
-.modal { display:none; position:fixed; z-index:10000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.9); }
-.modal-content { background:#111; margin:5% auto; padding:20px; width:90%; max-width:500px; border-radius:20px; }
-#lang-select { width:100%; height:400px; background:#222; color:#fff; font-size:18px; }
-#search-lang { width:100%; padding:15px; margin:15px 0; font-size:18px; background:#333; color:#fff; border:none; border-radius:10px; }
-.close { float:right; font-size:40px; cursor:pointer; }
